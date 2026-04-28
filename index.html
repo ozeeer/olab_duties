@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#f7f7f5"/>
+<meta name="color-scheme" content="light only"/>
+<title>Lab Duties</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet"/>
+<style>
+:root { color-scheme: light only; }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min-height: 100vh; padding-bottom: 80px; color-scheme: light only; }
+
+/* ── HEADER ── */
+.header { background: #f7f7f5; border-bottom: 1px solid #222; padding: 14px 16px; position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; }
+.header-left { display: flex; align-items: center; gap: 10px; }
+.header-left img { height: 24px; width: auto; }
+.header-title { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; color: #111; }
+.header-sub { font-size: 11px; color: #666; margin-top: 1px; }
+
+/* ── FILTER CHIPS ── */
+.filter-bar { padding: 10px 14px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #e8e8e6; background: #f7f7f5; position: sticky; top: 55px; z-index: 9; }
+.filter-bar::-webkit-scrollbar { display: none; }
+.chip { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; white-space: nowrap; border: 1px solid #e0e0de; background: #fff; color: #666; cursor: pointer; font-family: inherit; }
+.chip.on { background: #111; border-color: #111; color: #fff; }
+
+/* ── CONTENT ── */
+.content { padding: 12px 14px; max-width: 600px; margin: 0 auto; }
+
+/* ── SCHEDULE CARDS ── */
+.sched-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
+.sched-card.current { border-color: #222; }
+.sched-card-header { background: #f7f7f5; border-bottom: 1px solid #e8e8e6; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; }
+.sched-card.current .sched-card-header { background: #111; border-bottom-color: #111; }
+.sched-month { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #111; }
+.sched-card.current .sched-month { color: #fff; }
+.sched-tag { font-size: 10px; color: #aaa; font-weight: 500; letter-spacing: 0.05em; }
+.sched-card.current .sched-tag { color: rgba(255,255,255,0.5); }
+
+.duty-row { display: flex; border-bottom: 1px solid #f0f0ee; min-height: 50px; }
+.duty-row:last-child { border-bottom: none; }
+.duty-icon { width: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-right: 1px solid #f0f0ee; background: #fafaf8; font-size: 16px; }
+.duty-body { flex: 1; padding: 9px 12px; display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+.duty-type { font-size: 10px; font-weight: 600; color: #bbb; letter-spacing: 0.06em; text-transform: uppercase; }
+.person-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.person-chip { font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 20px; background: #f0f0ee; color: #444; border: 1px solid #e2e0d8; }
+
+/* ── DUTY DETAIL CARDS ── */
+.detail-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
+.detail-card-header { border-bottom: 1px solid #e8e8e6; padding: 12px 14px; display: flex; align-items: center; gap: 10px; }
+.detail-card-icon { width: 36px; height: 36px; border-radius: 8px; background: #f7f7f5; border: 1px solid #e2e0d8; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.detail-card-title { font-size: 14px; font-weight: 500; }
+.detail-card-sub { font-size: 11px; color: #888; margin-top: 1px; }
+.detail-list { padding: 12px 14px; display: flex; flex-direction: column; gap: 9px; }
+.detail-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #444; line-height: 1.45; }
+.bullet { width: 5px; height: 5px; border-radius: 50%; background: #ccc; margin-top: 5px; flex-shrink: 0; }
+
+/* ── ROLES CARD ── */
+.roles-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
+.roles-card-header { background: #111; color: #fff; padding: 9px 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.role-row { display: flex; border-bottom: 1px solid #f0f0ee; min-height: 52px; }
+.role-row:last-child { border-bottom: none; }
+.role-person { width: 145px; flex-shrink: 0; padding: 12px 14px; border-right: 1px solid #f0f0ee; background: #fafaf8; display: flex; align-items: center; font-size: 13px; font-weight: 500; color: #111; }
+.role-desc { flex: 1; padding: 12px 14px; display: flex; align-items: center; font-size: 13px; color: #555; line-height: 1.4; }
+
+/* ── TAB PANES ── */
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* ── FOOTER ── */
+.footer { position: fixed; bottom: 0; left: 0; right: 0; text-align: center; padding: 8px 16px; font-size: 11px; color: #bbb; letter-spacing: 0.04em; background: #f7f7f5; border-top: 1px solid #e8e8e6; z-index: 5; }
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/ozeeer/olab_packages/main/ozbolat_lab_logo.png" alt="Ozbolat Lab"/>
+    <div>
+      <div class="header-title">Lab Duties</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+
+<div class="filter-bar" id="filterBar">
+  <button class="chip on" onclick="switchTab('schedule', this)">Schedule</button>
+  <button class="chip" onclick="switchTab('duties', this)">Duties</button>
+  <button class="chip" onclick="switchTab('roles', this)">Fixed Roles</button>
+</div>
+
+<!-- ── TAB: SCHEDULE ── -->
+
+<div class="tab-pane active" id="tab-schedule">
+  <div class="content">
+    <div id="scheduleList"></div>
+  </div>
+</div>
+
+<!-- ── TAB: DUTIES ── -->
+
+<div class="tab-pane" id="tab-duties">
+  <div class="content">
+
+```
+<div class="detail-card">
+  <div class="detail-card-header">
+    <div class="detail-card-icon">📦</div>
+    <div>
+      <div class="detail-card-title">Supply &amp; Inventory</div>
+      <div class="detail-card-sub">Managed by Ozer</div>
+    </div>
+  </div>
+  <div class="detail-list">
+    <div class="detail-item"><div class="bullet"></div>Receive new packages and deliveries</div>
+    <div class="detail-item"><div class="bullet"></div>Check inventory log and update consumables status</div>
+    <div class="detail-item"><div class="bullet"></div>Refill DI water, 70% ethanol and water carboys</div>
+  </div>
+</div>
+
+<div class="detail-card">
+  <div class="detail-card-header">
+    <div class="detail-card-icon">🧹</div>
+    <div>
+      <div class="detail-card-title">Sterilization &amp; Waste Management</div>
+      <div class="detail-card-sub">Biohazard &amp; lab hygiene</div>
+    </div>
+  </div>
+  <div class="detail-list">
+    <div class="detail-item"><div class="bullet"></div>Autoclave biohazards, eppendorfs, tips and DI water</div>
+    <div class="detail-item"><div class="bullet"></div>Discard used media containers properly</div>
+    <div class="detail-item"><div class="bullet"></div>Check and refill incubator water weekly</div>
+    <div class="detail-item"><div class="bullet"></div>Aliquot FBS, Trypsin, and PS when needed</div>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- ── TAB: FIXED ROLES ── -->
+
+<div class="tab-pane" id="tab-roles">
+  <div class="content">
+    <div class="section-label">Permanent Assignments</div>
+    <div class="roles-card">
+      <div class="roles-card-header">Fixed Roles</div>
+      <div class="role-row">
+        <div class="role-person">Deepak &amp; Taufiq</div>
+        <div class="role-desc">Consumables purchasing &amp; order placement</div>
+      </div>
+      <div class="role-row">
+        <div class="role-person">Ozer</div>
+        <div class="role-desc">Weekly billing, documentation &amp; expenditure reports</div>
+      </div>
+      <div class="role-row">
+        <div class="role-person">Song</div>
+        <div class="role-desc">Lab management, coordination &amp; safety compliance</div>
+      </div>
+      <div class="role-row">
+        <div class="role-person">Joseph</div>
+        <div class="role-desc">iPSC room management, LN₂ and CO₂ oversight</div>
+      </div>
+      <div class="role-row">
+        <div class="role-person">UGs + Vaishnavi</div>
+        <div class="role-desc">Weekly micropipette tip box refilling &amp; organization</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">Ozbolat Lab &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Made by Ozer</div>
+
+<script>
+// ── Schedule data ──
+const MONTHS = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
+const currentMonth = MONTHS[new Date().getMonth()];
+
+const SCHEDULE = [
+  { month: "APRIL",  supply: ["Nipun","Omar","Medine"],      sterilize: ["Youdi","Liu","Yifan"] },
+  { month: "MAY",    supply: ["Vaibhav","Ilayda","Navneet"], sterilize: ["Nipun","Omar","Medine"] },
+  { month: "JUNE",   supply: ["Youdi","Liu","Yifan"],        sterilize: ["Vaibhav","Ilayda","Navneet"] },
+  { month: "JULY",   supply: ["Nipun","Omar","Medine"],      sterilize: ["Youdi","Liu","Yifan"] },
+  { month: "AUGUST", supply: ["Vaibhav","Ilayda","Navneet"], sterilize: ["Nipun","Omar","Medine"] },
+];
+
+function renderSchedule() {
+  const list = document.getElementById('scheduleList');
+  list.innerHTML = SCHEDULE.map(entry => {
+    const isCurrent = entry.month === currentMonth;
+    return `
+      <div class="sched-card${isCurrent ? ' current' : ''}">
+        <div class="sched-card-header">
+          <span class="sched-month">${entry.month}</span>
+          <span class="sched-tag">${isCurrent ? 'THIS MONTH' : ''}</span>
+        </div>
+        <div class="duty-row">
+          <div class="duty-icon">📦</div>
+          <div class="duty-body">
+            <div class="duty-type">Supply &amp; Inventory</div>
+            <div class="person-chips">
+              ${entry.supply.map(p => `<span class="person-chip">${p}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="duty-row">
+          <div class="duty-icon">🧹</div>
+          <div class="duty-body">
+            <div class="duty-type">Sterilization &amp; Waste</div>
+            <div class="person-chips">
+              ${entry.sterilize.map(p => `<span class="person-chip">${p}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.chip').forEach(b => b.classList.remove('on'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('on');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderSchedule();
+});
+</script>
+
+</body>
+</html>
