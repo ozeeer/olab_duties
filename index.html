@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -14,23 +13,22 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min-height: 100vh; padding-bottom: 80px; color-scheme: light only; }
 
-/* ── HEADER ── */
-.header { background: #f7f7f5; border-bottom: 1px solid #222; padding: 14px 16px; position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; }
+/* HEADER */
+.header { background: #f7f7f5; border-bottom: 1px solid #222; padding: 14px 16px; position: sticky; top: 0; z-index: 10; display: flex; align-items: center; }
 .header-left { display: flex; align-items: center; gap: 10px; }
 .header-left img { height: 24px; width: auto; }
 .header-title { font-size: 16px; font-weight: 500; letter-spacing: -0.02em; color: #111; }
-.header-sub { font-size: 11px; color: #666; margin-top: 1px; }
 
-/* ── FILTER CHIPS ── */
+/* FILTER CHIPS */
 .filter-bar { padding: 10px 14px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #e8e8e6; background: #f7f7f5; position: sticky; top: 55px; z-index: 9; }
 .filter-bar::-webkit-scrollbar { display: none; }
-.chip { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; white-space: nowrap; border: 1px solid #e0e0de; background: #fff; color: #666; cursor: pointer; font-family: inherit; }
+.chip { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; white-space: nowrap; border: 1px solid #e0e0de; background: #fff; color: #666; cursor: pointer; font-family: inherit; transition: background 0.15s, color 0.15s, border-color 0.15s; }
 .chip.on { background: #111; border-color: #111; color: #fff; }
 
-/* ── CONTENT ── */
+/* CONTENT */
 .content { padding: 12px 14px; max-width: 600px; margin: 0 auto; }
 
-/* ── SCHEDULE CARDS ── */
+/* SCHEDULE CARDS */
 .sched-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
 .sched-card.current { border-color: #222; }
 .sched-card-header { background: #f7f7f5; border-bottom: 1px solid #e8e8e6; padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; }
@@ -39,7 +37,6 @@ body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min
 .sched-card.current .sched-month { color: #fff; }
 .sched-tag { font-size: 10px; color: #aaa; font-weight: 500; letter-spacing: 0.05em; }
 .sched-card.current .sched-tag { color: rgba(255,255,255,0.5); }
-
 .duty-row { display: flex; border-bottom: 1px solid #f0f0ee; min-height: 50px; }
 .duty-row:last-child { border-bottom: none; }
 .duty-icon { width: 40px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-right: 1px solid #f0f0ee; background: #fafaf8; font-size: 16px; }
@@ -48,7 +45,7 @@ body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min
 .person-chips { display: flex; flex-wrap: wrap; gap: 4px; }
 .person-chip { font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 20px; background: #f0f0ee; color: #444; border: 1px solid #e2e0d8; }
 
-/* ── DUTY DETAIL CARDS ── */
+/* DETAIL CARDS */
 .detail-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
 .detail-card-header { border-bottom: 1px solid #e8e8e6; padding: 12px 14px; display: flex; align-items: center; gap: 10px; }
 .detail-card-icon { width: 36px; height: 36px; border-radius: 8px; background: #f7f7f5; border: 1px solid #e2e0d8; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
@@ -58,7 +55,7 @@ body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min
 .detail-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #444; line-height: 1.45; }
 .bullet { width: 5px; height: 5px; border-radius: 50%; background: #ccc; margin-top: 5px; flex-shrink: 0; }
 
-/* ── ROLES CARD ── */
+/* ROLES CARD */
 .roles-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
 .roles-card-header { background: #111; color: #fff; padding: 9px 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .role-row { display: flex; border-bottom: 1px solid #f0f0ee; min-height: 52px; }
@@ -66,87 +63,134 @@ body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min
 .role-person { width: 145px; flex-shrink: 0; padding: 12px 14px; border-right: 1px solid #f0f0ee; background: #fafaf8; display: flex; align-items: center; font-size: 13px; font-weight: 500; color: #111; }
 .role-desc { flex: 1; padding: 12px 14px; display: flex; align-items: center; font-size: 13px; color: #555; line-height: 1.4; }
 
-/* ── TAB PANES ── */
+/* SETTINGS SHARED */
+.settings-section { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; overflow: hidden; margin-bottom: 12px; }
+.settings-section-header { background: #111; color: #fff; padding: 9px 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; }
+.settings-section-header .sh-sub { font-size: 11px; font-weight: 400; letter-spacing: 0; opacity: 0.55; text-transform: none; }
+.add-person-row { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid #f0f0ee; }
+.add-person-input { flex: 1; padding: 7px 11px; border: 1px solid #e0ddd8; border-radius: 8px; font-size: 13px; font-family: inherit; background: #fff; color: #111; outline: none; }
+.add-person-input:focus { border-color: #999; }
+.add-person-btn { padding: 7px 14px; background: #111; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: 500; font-family: inherit; cursor: pointer; white-space: nowrap; }
+.add-person-btn:active { background: #333; }
+
+/* MEMBER LIST */
+.member-grid { padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.member-tag { display: flex; align-items: center; gap: 5px; padding: 5px 8px 5px 11px; background: #fafaf8; border: 1px solid #e2e0d8; border-radius: 20px; font-size: 13px; font-weight: 500; color: #111; }
+.member-tag-remove { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #ddd; background: #fff; color: #999; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; font-family: inherit; }
+.member-tag-remove:hover { background: #fee; border-color: #fcc; color: #c00; }
+
+/* DIVIDER */
+.gen-divider { display: flex; align-items: center; gap: 10px; margin: 16px 0 12px; }
+.gen-divider-line { flex: 1; height: 1px; background: #e2e0d8; }
+.gen-divider-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #bbb; }
+
+/* GENERATED GROUPS */
+.groups-wrap { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.group-card { background: #fff; border: 2px solid #e8e8e6; border-radius: 12px; overflow: hidden; transition: border-color 0.15s; }
+.group-card.approved { border-color: #2a7a2a; }
+.group-card-header { padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f0f0ee; background: #fafaf8; }
+.group-num { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; }
+.group-approved-badge { font-size: 10px; font-weight: 600; color: #2a7a2a; letter-spacing: 0.04em; display: none; }
+.group-card.approved .group-approved-badge { display: inline; }
+.group-card-body { padding: 10px 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; min-height: 44px; }
+
+/* editable name pill */
+.edit-pill { display: flex; align-items: center; gap: 0; background: #f0f0ee; border: 1px solid #e2e0d8; border-radius: 20px; overflow: hidden; }
+.edit-pill-name { font-size: 12px; font-weight: 500; color: #333; padding: 4px 10px; }
+.edit-pill-name[contenteditable="true"] { outline: none; background: #fff8dc; min-width: 40px; }
+.edit-pill-del { width: 22px; height: 22px; background: transparent; border: none; border-left: 1px solid #ddd; color: #aaa; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: inherit; }
+.edit-pill-del:hover { background: #fee; color: #c00; }
+
+/* add slot inside group */
+.add-slot-btn { font-size: 11px; color: #aaa; background: #f7f7f5; border: 1px dashed #ccc; border-radius: 20px; padding: 4px 10px; cursor: pointer; font-family: inherit; }
+.add-slot-btn:hover { border-color: #999; color: #666; }
+
+.group-card-footer { padding: 8px 12px; border-top: 1px solid #f0f0ee; display: flex; gap: 8px; }
+.btn-approve { flex: 1; padding: 7px; background: #111; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: 500; font-family: inherit; cursor: pointer; }
+.btn-approve:active { background: #333; }
+.group-card.approved .btn-approve { background: #2a7a2a; }
+.btn-edit { padding: 7px 12px; background: #fff; color: #555; border: 1px solid #ddd; border-radius: 8px; font-size: 12px; font-weight: 500; font-family: inherit; cursor: pointer; }
+.btn-edit.active { background: #fff8dc; border-color: #e0c060; color: #7a5c00; }
+
+/* window row */
+.group-size-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; }
+.group-size-label { font-size: 12px; color: #666; }
+.group-size-controls { display: flex; align-items: center; gap: 10px; }
+.stepper-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid #e0ddd8; background: #fff; color: #111; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: inherit; }
+.stepper-val { font-size: 14px; font-weight: 500; min-width: 20px; text-align: center; }
+
+.regen-btn { width: 100%; padding: 13px; background: #111; color: #fff; border: none; border-radius: 12px; font-size: 13px; font-weight: 500; font-family: inherit; cursor: pointer; letter-spacing: 0.01em; }
+.regen-btn:active { background: #333; }
+.save-btn { width: 100%; padding: 13px; background: #1a5c1a; color: #fff; border: none; border-radius: 12px; font-size: 13px; font-weight: 500; font-family: inherit; cursor: pointer; margin-top: 8px; letter-spacing: 0.01em; }
+.save-btn:active { background: #2a7a2a; }
+
+.settings-note { font-size: 11px; color: #aaa; text-align: center; margin-top: 8px; line-height: 1.5; }
+
+/* TAB PANES */
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
 
-/* ── FOOTER ── */
+/* FOOTER */
 .footer { position: fixed; bottom: 0; left: 0; right: 0; text-align: center; padding: 8px 16px; font-size: 11px; color: #bbb; letter-spacing: 0.04em; background: #f7f7f5; border-top: 1px solid #e8e8e6; z-index: 5; }
 </style>
-
 </head>
 <body>
-
-<!-- HEADER -->
 
 <div class="header">
   <div class="header-left">
     <img src="https://raw.githubusercontent.com/ozeeer/olab_packages/main/ozbolat_lab_logo.png" alt="Ozbolat Lab"/>
-    <div>
-      <div class="header-title">Lab Duties</div>
-    </div>
+    <div><div class="header-title">Lab Duties</div></div>
   </div>
 </div>
 
-<!-- FILTER BAR -->
-
-<div class="filter-bar" id="filterBar">
+<div class="filter-bar">
   <button class="chip on" onclick="switchTab('schedule', this)">Schedule</button>
   <button class="chip" onclick="switchTab('duties', this)">Duties</button>
   <button class="chip" onclick="switchTab('roles', this)">Fixed Roles</button>
+  <button class="chip" onclick="switchTab('settings', this)">⚙ Settings</button>
 </div>
 
-<!-- ── TAB: SCHEDULE ── -->
-
+<!-- TAB: SCHEDULE -->
 <div class="tab-pane active" id="tab-schedule">
-  <div class="content">
-    <div id="scheduleList"></div>
-  </div>
+  <div class="content"><div id="scheduleList"></div></div>
 </div>
 
-<!-- ── TAB: DUTIES ── -->
-
+<!-- TAB: DUTIES -->
 <div class="tab-pane" id="tab-duties">
   <div class="content">
-
-
-<div class="detail-card">
-  <div class="detail-card-header">
-    <div class="detail-card-icon">📦</div>
-    <div>
-      <div class="detail-card-title">Supply &amp; Inventory</div>
-      <div class="detail-card-sub">Managed by Ozer</div>
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <div class="detail-card-icon">📦</div>
+        <div>
+          <div class="detail-card-title">Supply &amp; Inventory</div>
+          <div class="detail-card-sub">Managed by Ozer</div>
+        </div>
+      </div>
+      <div class="detail-list">
+        <div class="detail-item"><div class="bullet"></div>Receive new packages and deliveries</div>
+        <div class="detail-item"><div class="bullet"></div>Check inventory log and update consumables status</div>
+        <div class="detail-item"><div class="bullet"></div>Refill DI water, 70% ethanol and water carboys</div>
+      </div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <div class="detail-card-icon">🧹</div>
+        <div>
+          <div class="detail-card-title">Sterilization &amp; Waste Management</div>
+          <div class="detail-card-sub">Biohazard &amp; lab hygiene</div>
+        </div>
+      </div>
+      <div class="detail-list">
+        <div class="detail-item"><div class="bullet"></div>Autoclave biohazards, eppendorfs, tips and DI water</div>
+        <div class="detail-item"><div class="bullet"></div>Discard used media containers properly</div>
+        <div class="detail-item"><div class="bullet"></div>Check and refill incubator water weekly</div>
+        <div class="detail-item"><div class="bullet"></div>Aliquot FBS, Trypsin, and PS when needed</div>
+      </div>
     </div>
   </div>
-  <div class="detail-list">
-    <div class="detail-item"><div class="bullet"></div>Receive new packages and deliveries</div>
-    <div class="detail-item"><div class="bullet"></div>Check inventory log and update consumables status</div>
-    <div class="detail-item"><div class="bullet"></div>Refill DI water, 70% ethanol and water carboys</div>
-  </div>
 </div>
 
-<div class="detail-card">
-  <div class="detail-card-header">
-    <div class="detail-card-icon">🧹</div>
-    <div>
-      <div class="detail-card-title">Sterilization &amp; Waste Management</div>
-      <div class="detail-card-sub">Biohazard &amp; lab hygiene</div>
-    </div>
-  </div>
-  <div class="detail-list">
-    <div class="detail-item"><div class="bullet"></div>Autoclave biohazards, eppendorfs, tips and DI water</div>
-    <div class="detail-item"><div class="bullet"></div>Discard used media containers properly</div>
-    <div class="detail-item"><div class="bullet"></div>Check and refill incubator water weekly</div>
-    <div class="detail-item"><div class="bullet"></div>Aliquot FBS, Trypsin, and PS when needed</div>
-  </div>
-</div>
-
-
-  </div>
-</div>
-
-<!-- ── TAB: FIXED ROLES ── -->
-
+<!-- TAB: FIXED ROLES -->
 <div class="tab-pane" id="tab-roles">
   <div class="content">
     <div class="roles-card">
@@ -175,56 +219,361 @@ body { font-family: 'DM Sans', sans-serif; background: #f7f7f5; color: #111; min
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- TAB: SETTINGS -->
+<div class="tab-pane" id="tab-settings">
+
+  <!-- Password gate -->
+  <div id="settings-lock" class="content" style="padding-top:48px;display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div style="font-size:30px;">🔒</div>
+    <div style="font-size:14px;font-weight:500;color:#111;">Enter password to continue</div>
+    <div style="display:flex;gap:8px;width:100%;max-width:280px;">
+      <input id="settings-pw-input" type="password" class="add-person-input" placeholder="Password"
+        onkeydown="if(event.key==='Enter')checkPassword()"/>
+      <button class="add-person-btn" onclick="checkPassword()">Unlock</button>
+    </div>
+    <div id="settings-pw-error" style="font-size:12px;color:#c00;min-height:16px;"></div>
+  </div>
+
+  <!-- Actual settings -->
+  <div id="settings-content" class="content" style="display:none;">
+
+    <!-- Members -->
+    <div class="settings-section">
+      <div class="settings-section-header">
+        Lab Members
+        <span class="sh-sub" id="member-count"></span>
+      </div>
+      <div class="member-grid" id="member-grid"></div>
+      <div class="add-person-row">
+        <input class="add-person-input" id="member-input" type="text" placeholder="Add member..."
+          onkeydown="if(event.key==='Enter')addMember()"/>
+        <button class="add-person-btn" onclick="addMember()">Add</button>
+      </div>
+    </div>
+
+    <!-- Generated groups -->
+    <div class="gen-divider">
+      <div class="gen-divider-line"></div>
+      <div class="gen-divider-label">Generated Groups</div>
+      <div class="gen-divider-line"></div>
+    </div>
+
+    <div class="groups-wrap" id="groups-wrap"></div>
+
+    <button class="regen-btn" onclick="generateGroups()">↺ Regenerate Groups</button>
+
+    <!-- Window -->
+    <div class="settings-section" style="margin-top:12px;">
+      <div class="settings-section-header">Schedule Window</div>
+      <div class="group-size-row">
+        <span class="group-size-label">Months to show ahead</span>
+        <div class="group-size-controls">
+          <button class="stepper-btn" onclick="changeWindow(-1)">−</button>
+          <span class="stepper-val" id="window-val">5</span>
+          <button class="stepper-btn" onclick="changeWindow(+1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="save-btn" onclick="saveAndApply()">Save &amp; Apply to Schedule</button>
+    <p class="settings-note">Approve all groups before saving. Changes persist in your browser.</p>
+
+  </div>
+</div>
 
 <div class="footer">Ozbolat Lab &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Made by Ozer</div>
 
 <script>
-// ── Schedule data ──
-const MONTHS = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
-const currentMonth = MONTHS[new Date().getMonth()];
+const MONTH_NAMES = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"];
 
-const SCHEDULE = [
-  { month: "APRIL",  supply: ["Nipun","Omar","Medine"],      sterilize: ["Youdi","Liu","Yifan"] },
-  { month: "MAY",    supply: ["Vaibhav","Ilayda","Navneet"], sterilize: ["Nipun","Omar","Medine"] },
-  { month: "JUNE",   supply: ["Youdi","Liu","Yifan"],        sterilize: ["Vaibhav","Ilayda","Navneet"] },
-  { month: "JULY",   supply: ["Nipun","Omar","Medine"],      sterilize: ["Youdi","Liu","Yifan"] },
-  { month: "AUGUST", supply: ["Vaibhav","Ilayda","Navneet"], sterilize: ["Nipun","Omar","Medine"] },
-];
+const DEFAULT_STATE = {
+  members: ["Nipun","Omar","Medine","Vaibhav","Ilayda","Navneet","Youdi","Liu","Yifan"],
+  groups: [["Nipun","Omar","Medine"],["Vaibhav","Ilayda","Navneet"],["Youdi","Liu","Yifan"]],
+  groupsApproved: [true, true, true],
+  windowMonths: 5
+};
+
+let state = loadState();
+
+// draft groups (live editable, not yet saved)
+let draftGroups = [];
+let draftApproved = [];
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem('olab_duties_v3');
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return JSON.parse(JSON.stringify(DEFAULT_STATE));
+}
+
+function saveState() {
+  localStorage.setItem('olab_duties_v3', JSON.stringify(state));
+}
+
+// ── Schedule ──
+function buildSchedule() {
+  const now = new Date();
+  const startYear = now.getFullYear();
+  const startMonth = now.getMonth();
+  const groups = state.groups;
+  if (!groups.length) return [];
+
+  const EPOCH_YEAR = 2025, EPOCH_MONTH = 0;
+  const epochOffset = (startYear - EPOCH_YEAR) * 12 + (startMonth - EPOCH_MONTH);
+  const n = groups.length;
+  const schedule = [];
+
+  for (let i = 0; i < state.windowMonths; i++) {
+    const totalIdx = epochOffset + i;
+    const monthIdx = (startMonth + i) % 12;
+    const year = startYear + Math.floor((startMonth + i) / 12);
+    const supplyGroup = groups[totalIdx % n];
+    const sterilizeGroup = groups[(totalIdx + 1) % n];
+    schedule.push({
+      month: MONTH_NAMES[monthIdx],
+      year,
+      supply: supplyGroup,
+      sterilize: sterilizeGroup,
+      isCurrent: i === 0
+    });
+  }
+  return schedule;
+}
 
 function renderSchedule() {
   const list = document.getElementById('scheduleList');
-  list.innerHTML = SCHEDULE.map(entry => {
-    const isCurrent = entry.month === currentMonth;
-    return `
-      <div class="sched-card${isCurrent ? ' current' : ''}">
-        <div class="sched-card-header">
-          <span class="sched-month">${entry.month}</span>
-          <span class="sched-tag">${isCurrent ? 'THIS MONTH' : ''}</span>
+  const schedule = buildSchedule();
+  if (!schedule.length) {
+    list.innerHTML = '<p style="text-align:center;color:#bbb;font-size:13px;padding:24px 0;">No schedule yet. Configure groups in Settings.</p>';
+    return;
+  }
+  list.innerHTML = schedule.map(entry => `
+    <div class="sched-card${entry.isCurrent ? ' current' : ''}">
+      <div class="sched-card-header">
+        <span class="sched-month">${entry.month}${entry.year !== new Date().getFullYear() ? ' ' + entry.year : ''}</span>
+        <span class="sched-tag">${entry.isCurrent ? 'THIS MONTH' : ''}</span>
+      </div>
+      <div class="duty-row">
+        <div class="duty-icon">📦</div>
+        <div class="duty-body">
+          <div class="duty-type">Supply &amp; Inventory</div>
+          <div class="person-chips">${entry.supply.map(p => `<span class="person-chip">${p}</span>`).join('')}</div>
         </div>
-        <div class="duty-row">
-          <div class="duty-icon">📦</div>
-          <div class="duty-body">
-            <div class="duty-type">Supply &amp; Inventory</div>
-            <div class="person-chips">
-              ${entry.supply.map(p => `<span class="person-chip">${p}</span>`).join('')}
-            </div>
-          </div>
+      </div>
+      <div class="duty-row">
+        <div class="duty-icon">🧹</div>
+        <div class="duty-body">
+          <div class="duty-type">Sterilization &amp; Waste</div>
+          <div class="person-chips">${entry.sterilize.map(p => `<span class="person-chip">${p}</span>`).join('')}</div>
         </div>
-        <div class="duty-row">
-          <div class="duty-icon">🧹</div>
-          <div class="duty-body">
-            <div class="duty-type">Sterilization &amp; Waste</div>
-            <div class="person-chips">
-              ${entry.sterilize.map(p => `<span class="person-chip">${p}</span>`).join('')}
-            </div>
-          </div>
-        </div>
-      </div>`;
-  }).join('');
+      </div>
+    </div>`).join('');
+}
+
+// ── Members ──
+function renderMembers() {
+  const grid = document.getElementById('member-grid');
+  const count = document.getElementById('member-count');
+  count.textContent = state.members.length + ' members';
+  if (!state.members.length) {
+    grid.innerHTML = '<div style="padding:12px;font-size:12px;color:#bbb;">No members yet</div>';
+    return;
+  }
+  grid.innerHTML = state.members.map((name, i) => `
+    <div class="member-tag">
+      <span>${name}</span>
+      <button class="member-tag-remove" onclick="removeMember(${i})">×</button>
+    </div>`).join('');
+}
+
+function addMember() {
+  const input = document.getElementById('member-input');
+  const name = input.value.trim();
+  if (!name) return;
+  state.members.push(name);
+  input.value = '';
+  renderMembers();
+}
+
+function removeMember(idx) {
+  state.members.splice(idx, 1);
+  renderMembers();
+}
+
+// ── Draft Groups ──
+function generateGroups() {
+  const members = [...state.members];
+  // shuffle
+  for (let i = members.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [members[i], members[j]] = [members[j], members[i]];
+  }
+  draftGroups = [];
+  for (let i = 0; i < members.length; i += 3) {
+    draftGroups.push(members.slice(i, i + 3));
+  }
+  draftApproved = draftGroups.map(() => false);
+  renderDraftGroups();
+}
+
+function renderDraftGroups() {
+  const wrap = document.getElementById('groups-wrap');
+  if (!draftGroups.length) {
+    wrap.innerHTML = '<div style="text-align:center;font-size:12px;color:#bbb;padding:12px 0;">Click Regenerate to create groups from members above.</div>';
+    return;
+  }
+  wrap.innerHTML = draftGroups.map((group, gi) => `
+    <div class="group-card${draftApproved[gi] ? ' approved' : ''}" id="gcard-${gi}">
+      <div class="group-card-header">
+        <span class="group-num">Group ${gi + 1}</span>
+        <span class="group-approved-badge">✓ Approved</span>
+      </div>
+      <div class="group-card-body" id="gbody-${gi}">
+        ${group.map((name, pi) => pillHTML(gi, pi, name, false)).join('')}
+        <button class="add-slot-btn" onclick="addSlot(${gi})">+ add</button>
+      </div>
+      <div class="group-card-footer">
+        <button class="btn-approve" id="gapprove-${gi}" onclick="toggleApprove(${gi})">
+          ${draftApproved[gi] ? '✓ Approved' : 'Approve'}
+        </button>
+        <button class="btn-edit" id="gedit-${gi}" onclick="toggleEdit(${gi})">Edit</button>
+      </div>
+    </div>`).join('');
+}
+
+function pillHTML(gi, pi, name, editable) {
+  return `<div class="edit-pill" id="pill-${gi}-${pi}">
+    <span class="edit-pill-name"${editable ? ' contenteditable="true" onblur="savePillName('+gi+','+pi+',this)"' : ''}>${name}</span>
+    <button class="edit-pill-del" onclick="removePill(${gi},${pi})">×</button>
+  </div>`;
+}
+
+let editingGroup = null;
+
+function toggleEdit(gi) {
+  const wasEditing = editingGroup === gi;
+  // close previous
+  if (editingGroup !== null) closeEdit(editingGroup);
+  if (wasEditing) return;
+
+  editingGroup = gi;
+  const btn = document.getElementById(`gedit-${gi}`);
+  btn.classList.add('active');
+  btn.textContent = 'Done';
+  // re-render body as editable
+  const body = document.getElementById(`gbody-${gi}`);
+  body.innerHTML = draftGroups[gi].map((name, pi) => pillHTML(gi, pi, name, true)).join('') +
+    `<button class="add-slot-btn" onclick="addSlot(${gi})">+ add</button>`;
+  // unapprove when editing
+  if (draftApproved[gi]) {
+    draftApproved[gi] = false;
+    document.getElementById(`gcard-${gi}`).classList.remove('approved');
+    document.getElementById(`gapprove-${gi}`).textContent = 'Approve';
+  }
+}
+
+function closeEdit(gi) {
+  editingGroup = null;
+  const btn = document.getElementById(`gedit-${gi}`);
+  if (!btn) return;
+  btn.classList.remove('active');
+  btn.textContent = 'Edit';
+  const body = document.getElementById(`gbody-${gi}`);
+  body.innerHTML = draftGroups[gi].map((name, pi) => pillHTML(gi, pi, name, false)).join('') +
+    `<button class="add-slot-btn" onclick="addSlot(${gi})">+ add</button>`;
+}
+
+function savePillName(gi, pi, el) {
+  const val = el.textContent.trim();
+  if (val) draftGroups[gi][pi] = val;
+  else el.textContent = draftGroups[gi][pi];
+}
+
+function removePill(gi, pi) {
+  draftGroups[gi].splice(pi, 1);
+  if (editingGroup === gi) {
+    const body = document.getElementById(`gbody-${gi}`);
+    body.innerHTML = draftGroups[gi].map((name, pi2) => pillHTML(gi, pi2, name, true)).join('') +
+      `<button class="add-slot-btn" onclick="addSlot(${gi})">+ add</button>`;
+  } else {
+    const body = document.getElementById(`gbody-${gi}`);
+    body.innerHTML = draftGroups[gi].map((name, pi2) => pillHTML(gi, pi2, name, false)).join('') +
+      `<button class="add-slot-btn" onclick="addSlot(${gi})">+ add</button>`;
+  }
+}
+
+function addSlot(gi) {
+  const name = prompt('Name to add to Group ' + (gi + 1) + ':');
+  if (!name || !name.trim()) return;
+  draftGroups[gi].push(name.trim());
+  const editable = editingGroup === gi;
+  const body = document.getElementById(`gbody-${gi}`);
+  body.innerHTML = draftGroups[gi].map((n, pi) => pillHTML(gi, pi, n, editable)).join('') +
+    `<button class="add-slot-btn" onclick="addSlot(${gi})">+ add</button>`;
+}
+
+function toggleApprove(gi) {
+  if (editingGroup === gi) closeEdit(gi);
+  draftApproved[gi] = !draftApproved[gi];
+  const card = document.getElementById(`gcard-${gi}`);
+  const btn = document.getElementById(`gapprove-${gi}`);
+  card.classList.toggle('approved', draftApproved[gi]);
+  btn.textContent = draftApproved[gi] ? '✓ Approved' : 'Approve';
+}
+
+function saveAndApply() {
+  if (draftGroups.length && !draftApproved.every(Boolean)) {
+    alert('Please approve all groups before saving.');
+    return;
+  }
+  if (draftGroups.length) {
+    state.groups = draftGroups.map(g => [...g]);
+    state.groupsApproved = draftApproved.slice();
+  }
+  saveState();
+  renderSchedule();
+  const btn = document.querySelector('.save-btn');
+  btn.textContent = 'Saved ✓';
+  btn.style.background = '#2a7a2a';
+  setTimeout(() => { btn.textContent = 'Save & Apply to Schedule'; btn.style.background = ''; }, 2000);
+}
+
+function changeWindow(delta) {
+  state.windowMonths = Math.max(1, Math.min(24, state.windowMonths + delta));
+  document.getElementById('window-val').textContent = state.windowMonths;
+}
+
+// ── Password ──
+function checkPassword() {
+  const input = document.getElementById('settings-pw-input');
+  if (input.value === 'ozbolat') {
+    document.getElementById('settings-lock').style.display = 'none';
+    document.getElementById('settings-content').style.display = 'block';
+    input.value = '';
+    renderMembers();
+    // load current approved groups into draft
+    draftGroups = state.groups.map(g => [...g]);
+    draftApproved = state.groupsApproved ? [...state.groupsApproved] : draftGroups.map(() => true);
+    renderDraftGroups();
+    document.getElementById('window-val').textContent = state.windowMonths;
+  } else {
+    const err = document.getElementById('settings-pw-error');
+    err.textContent = 'Incorrect password';
+    input.value = '';
+    input.focus();
+    setTimeout(() => { err.textContent = ''; }, 2000);
+  }
 }
 
 function switchTab(name, btn) {
+  if (name !== 'settings') {
+    document.getElementById('settings-lock').style.display = 'flex';
+    document.getElementById('settings-content').style.display = 'none';
+    document.getElementById('settings-pw-input').value = '';
+    document.getElementById('settings-pw-error').textContent = '';
+    editingGroup = null;
+  }
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.chip').forEach(b => b.classList.remove('on'));
   document.getElementById('tab-' + name).classList.add('active');
@@ -235,6 +584,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSchedule();
 });
 </script>
-
 </body>
 </html>
